@@ -2,7 +2,7 @@ package fuzzyfinder
 
 type opt struct {
 	mode        mode
-	previewFunc func(i, width, height int) string
+	previewFunc func(i, width, height int, query string) string
 	multi       bool
 }
 
@@ -37,7 +37,7 @@ func WithMode(m mode) Option {
 // If there is no selected item, previewFunc passes -1 to previewFunc.
 //
 // If f is nil, the preview feature is disabled.
-func WithPreviewWindow(f func(i, width, height int) string) Option {
+func WithPreviewWindow(f func(i, width, height int, query string) string) Option {
 	return func(o *opt) {
 		o.previewFunc = f
 	}

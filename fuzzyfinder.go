@@ -196,7 +196,8 @@ func (f *finder) _drawPreview() {
 		idx = f.state.matched[f.state.y].Idx
 	}
 
-	sp := strings.Split(f.opt.previewFunc(idx, width, height), "\n")
+	query := string(f.state.input)
+	sp := strings.Split(f.opt.previewFunc(idx, width, height, query), "\n")
 	prevLines := make([][]rune, 0, len(sp))
 	for _, s := range sp {
 		prevLines = append(prevLines, []rune(s))
