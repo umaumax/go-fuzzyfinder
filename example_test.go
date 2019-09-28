@@ -4,8 +4,8 @@ import (
 	"fmt"
 	"io/ioutil"
 
+	"github.com/gdamore/tcell/termbox"
 	fuzzyfinder "github.com/umaumax/go-fuzzyfinder"
-	termbox "github.com/nsf/termbox-go"
 )
 
 func ExampleFind() {

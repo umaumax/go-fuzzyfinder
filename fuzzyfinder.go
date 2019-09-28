@@ -14,10 +14,10 @@ import (
 	"unicode"
 	"unicode/utf8"
 
-	"github.com/umaumax/go-fuzzyfinder/matching"
+	"github.com/gdamore/tcell/termbox"
 	runewidth "github.com/mattn/go-runewidth"
-	termbox "github.com/nsf/termbox-go"
 	"github.com/pkg/errors"
+	"github.com/umaumax/go-fuzzyfinder/matching"
 )
 
 var (
@@ -51,7 +51,7 @@ type state struct {
 	input []rune
 
 	// selections holds whether a key is selected or not. Each key is
-	// an index of a item (Matched.Idx). Each value represents the position
+	// an index of an item (Matched.Idx). Each value represents the position
 	// which it is selected.
 	selection map[int]int
 	// selectionIdx hods the next index, which is used to a selection's value.
@@ -526,7 +526,7 @@ func (f *finder) find(slice interface{}, itemFunc func(i int) string, opts []Opt
 // The argument slice must be a slice type. If it is not a slice, Find returns
 // an error. itemFunc is called by the length of slice. previewFunc is called
 // when the cursor which points the current selected item is changed.
-// If itemFunc is nil, Find returns a error.
+// If itemFunc is nil, Find returns an error.
 //
 // itemFunc receives an argument i. It is the index of the item currently
 // selected.

@@ -9,8 +9,8 @@ import (
 	"os"
 	"testing"
 
+	"github.com/gdamore/tcell/termbox"
 	fuzzyfinder "github.com/umaumax/go-fuzzyfinder"
-	termbox "github.com/nsf/termbox-go"
 )
 
 type fuzzKey struct {
@@ -112,11 +112,11 @@ func TestFuzz(t *testing.T) {
 				return
 			}()
 
-			term := newMockedTerminal()
+			f, term := fuzzyfinder.NewWithMockedTerminal()
 			events = append(events, key(termbox.KeyEsc))
 			term.SetEvents(events...)
 
-			_, err := fuzzyfinder.Find(
+			_, err := f.Find(
 				tracks,
 				func(i int) string {
 					return tracks[i].Name
