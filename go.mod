@@ -1,4 +1,4 @@
-module github.com/ktr0731/go-fuzzyfinder
+module github.com/umaumax/go-fuzzyfinder
 
 require (
 	github.com/gdamore/tcell v1.2.0
